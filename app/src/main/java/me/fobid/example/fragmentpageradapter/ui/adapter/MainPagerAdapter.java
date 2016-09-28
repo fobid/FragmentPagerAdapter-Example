@@ -15,12 +15,13 @@
  */
 package me.fobid.example.fragmentpageradapter.ui.adapter;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.SparseArray;
 
+import me.fobid.example.fragmentpageradapter.ui.fragment.BackgroundFragment;
 import me.fobid.example.fragmentpageradapter.ui.fragment.BaseFragment;
+import me.fobid.example.fragmentpageradapter.ui.fragment.TextFragment;
 
 /**
  * author @Fobid
@@ -34,10 +35,13 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
         super(fm);
 
         mFragments = new SparseArray<>();
+
+        mFragments.put(0, new TextFragment());
+        mFragments.put(1, new BackgroundFragment());
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public BaseFragment getItem(int position) {
         return mFragments.get(position);
     }
 

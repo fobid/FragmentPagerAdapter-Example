@@ -13,24 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.fobid.example.fragmentpageradapter.ui.fragment;
+package util;
 
-import android.content.Context;
-import android.support.v4.app.Fragment;
+import java.util.Random;
 
 /**
  * author @Fobid
  */
-public abstract class BaseFragment extends Fragment {
+public class RandomUtils {
 
-    protected Context context;
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        this.context = context;
+    private RandomUtils() {
     }
 
-    public abstract void change();
+    public static int getInt(int seed) {
+        Random r = new Random();
+
+        return r.nextInt(seed);
+    }
 }
